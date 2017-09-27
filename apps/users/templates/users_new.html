@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <title>New User</title>
+    </head>
+
+    <body>
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li class="{{ message.tags }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <h1>Add a new user</h1>
+
+        <form action="create" method='post'>
+            {% csrf_token %}
+            First Name:<br>
+            <input type="text" name="first_name"><br>
+            Last Name:<br>
+            <input type="text" name="last_name"><br>
+            E-mail:<br>
+            <input type="text" name="email"><br>
+            <input type="submit" value="Create">
+        </form>
+
+        <a href="/users">Go Back</a>
+    </body>
+</html>
